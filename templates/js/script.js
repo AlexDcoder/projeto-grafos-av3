@@ -13,6 +13,22 @@ var videos = document.querySelectorAll(".video");
 
 var outrosIcones = document.querySelector(".outros-icones");
 
+document.addEventListener('DOMContentLoaded', () => {
+  // Select all elements with the class 'video'
+  const videos = document.querySelectorAll('.video');
+  
+  // Add a click event listener to each video
+  videos.forEach(video => {
+      video.addEventListener('click', (event) => {
+          // Get the URL from the data-url attribute
+          const url = video.getAttribute('data-url');
+          
+          // Redirect to the URL
+          window.location.href = url;
+      });
+  });
+});
+
 sanduiche.onclick = function () {
   // Itera sobre todos os elementos encontrados com a classe e aplica as alterações
   sidebars.forEach(function (sidebar) {

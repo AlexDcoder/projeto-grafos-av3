@@ -16,11 +16,6 @@ class Video:
         self.likes: int = likes
         self.relacionados: list = []
 
-    def add_video_relacionado(self, outro_video):
-        if outro_video.tags == self.tags or outro_video.autor == self.autor:
-            self.relacionados.append(outro_video)
-            outro_video.relacionados.apped(self)
-
     def nivel_de_similaridade(self, outro_video):
         '''
             Definindo um nível de similaridade entre vídeos
