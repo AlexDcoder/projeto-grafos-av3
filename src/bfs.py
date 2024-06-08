@@ -1,24 +1,27 @@
 from math import inf
-from src.grafo import Plataforma, Video
-# Algoritmo de busca em profundidade
+from grafo import Plataforma, Video
 
 
-def BFS(plataforma: Plataforma, video_inicio: Video):
-    color = ["WHITE"]*len(plataforma.videos)
-    d = [inf]*len(plataforma.videos)
-    pi = [-1]*len(plataforma.videos)
+def BFS(plataforma: Plataforma, video_inicial: Video):
+    n = plataforma.get_length()
+    color = ["WHITE"] * n
+    d = [inf] * n
+    pi = [-1] * n
 
-    color[plataforma.videos.index(video_inicio)] = "GRAY"
-    d[plataforma.videos.index(video_inicio)] = 0
+    s = plataforma.videos.index(video_inicial)
 
-    # Q = []
-    # Q.append(s)
-    # while len(Q) > 0:
-    #     u = Q.pop(0)
-    #     for v in range(n):
-    #         if plataforma[u][v] > 0 and color[v] == "WHITE":
-    #             color[v] = "GRAY"
-    #             d[v] = d[u]+1
-    #             pi[v] = u
-    #             Q.append(v)
+    color[s] = "GRAY"
+    d[s] = 0
+
+    Q = []
+    Q.append(plataforma.videos[s])
+    while len(Q) > 0:
+        u = Q.pop(0)
+        for v in u.relacionados:
+            index_v = plataforma.videos.index(v)
+            if color[index_v] == "WHITE":
+                color[index_v] = "GRAY"
+                d[index_v] = d[plataforma.videos.index(u)] + 1
+                pi[index_v] = u
+                Q.append(v)
     return d, pi

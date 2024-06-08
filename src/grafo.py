@@ -14,7 +14,7 @@ class Video:
         self.likes: int = likes
         self.relacionados: list = []
 
-    def nivel_de_similaridade(self, outro_video):
+    def nivel_de_similaridade(self, outro_video) -> int:
         '''
             Definindo um nível de similaridade entre vídeos
         '''
@@ -57,3 +57,6 @@ class Plataforma:
 
         self.videos[index_video_1].relacionados.append(
             self.videos[index_video_2])
+
+    def get_length(self):
+        return len(self.videos)
