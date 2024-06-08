@@ -1,6 +1,4 @@
 # Criação do modelo de grafo
-# pode usar distância mínima, para criar cluster mínimo de vídeos
-# add collabs
 
 PESO_TAG, PESO_AUTOR, PESO_LIKE = 20, 200, 1
 
@@ -45,4 +43,17 @@ class Plataforma:
         self.videos: list[Video] = []
 
     def adicionando_video_a_plataforma(self, video):
+        '''
+            Adiocionar vídeos à plataforma
+        '''
         self.videos.append(video)
+
+    def relacionar_videos(self, video1, video2):
+        '''
+            Relacionar dois vídeos na plataforma
+        '''
+        index_video_1 = self.videos.index(video1)
+        index_video_2 = self.videos.index(video2)
+
+        self.videos[index_video_1].relacionados.append(
+            self.videos[index_video_2])
