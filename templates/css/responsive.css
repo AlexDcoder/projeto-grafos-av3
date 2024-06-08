@@ -1,0 +1,101 @@
+/* Dispositivo = Tablets, Ipads (retrato)
+     Tela = 768px a 1024px */
+     @media (max-width: 1024px) {
+      /* Reduzir o tamanho do input de pesquisa */
+      .input-container {
+        width: 250px;
+      }
+    
+      .esconde-outros-icones {
+        display: none;
+      }
+    
+      .video {
+        max-width: 300px;
+      }
+    }
+    
+    @media (max-width: 767px) {
+      .menu-sanduiche,
+      .header-centro, 
+      .inscricoes, 
+      .explorar, 
+      .mais-youtube, 
+      .configuracoes, 
+      .final, 
+      .outros-icones,
+      hr {
+        display: none;
+      }
+    
+      .sidebar {
+        gap: 20px;
+        width: 70px;
+        overflow: hidden;
+      }
+      
+      .sidebar a {
+        flex-direction: column;
+        height: 60px;
+      }
+      
+      .sidebar p {
+        margin: 0;
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 14px;
+        max-height: 14px;
+        padding-bottom: 20px;
+      }
+    
+      .video-container, .filtros{
+        width: calc(100% - 70px);
+        margin-left: 70px;
+        left: 0;
+      }
+    
+      .video {
+        max-width: 90%;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      
+      .sidebar {
+        background-color: white;
+        flex-direction: row;
+        justify-content: center;
+        bottom: 0;
+        top: auto;
+        padding: 0;
+        width: 100%;
+        height: auto;
+        align-items: center;
+        overflow-x: auto; 
+      }
+
+      .sidebar a {
+        justify-content: space-evenly;
+      }
+    
+      .filtros{
+        width: 100%;
+        margin: 0;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    
+      .video-container {
+        width: 100%;
+        justify-content: center;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 50px; /* diferença do menu inferior */
+        margin: 140px 0 0 0;
+      }
+    
+      .aumenta-video-container {
+        margin-top: 140px;
+      }
+    
+    }

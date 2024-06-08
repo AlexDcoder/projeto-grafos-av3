@@ -1,0 +1,628 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* remove o contorno (outline)  */
+*:focus {
+  outline: none;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 10px;
+  background: #ffffff;
+}
+
+/*  #########################  HEADER #########################  */
+
+.youtube-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/*  #########################  HEADER ESQUERDO #########################  */
+
+.header-esq {
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.menu-sanduiche {
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  cursor: pointer;
+  position: relative;
+  /* relative - Para que o pseudo-elemento seja posicionado em relação a este elemento */
+}
+
+.menu-sanduiche::before {
+  content: "";
+  /* Adiciona um conteúdo vazio para o pseudo-elemento */
+  position: absolute;
+  /* Posiciona o pseudo-elemento */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  /* Define o raio para tornar o pseudo-elemento redondo */
+  background-color: transparent;
+  /* Define a cor de fundo inicial como transparente */
+  transition: background-color 0.3s;
+  /* Adiciona uma transição suave para a mudança de cor de fundo */
+  z-index: -1;
+  /* Coloca o pseudo-elemento atrás do ícone */
+}
+
+.menu-sanduiche:hover::before {
+  background-color: #e6e6e6;
+  /* Altera a cor de fundo do pseudo-elemento para cinza quando o mouse passa por cima */
+}
+
+.sanduiche-svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+  fill: #000;
+  /* Define a cor de preenchimento inicial como preto */
+}
+
+/* removendo sidebar (recomendacao do professor) */
+  html {
+    overflow-y: hidden;
+  }
+
+
+.menu-sanduiche:hover {
+  fill: #ff0000;
+  /* Altera a cor do preenchimento para vermelho quando o mouse passa por cima do ícone */
+}
+
+.youtube-logo {
+  display: flex;
+  padding: 18px 14px 18px 16px;
+}
+
+.youtube-logo-svg {
+  height: 20px;
+  width: 90px;
+  cursor: pointer;
+}
+
+#language-logo {
+  color: #606060;
+  margin: -24px 0 0 -10px;
+}
+
+
+/*  #########################  HEADER CENTRO #########################  */
+
+.header-centro {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  width: 500px;
+  transition: width 0.3s;
+  /* Adiciona transição para a largura do input */
+  position: relative;
+  /* Adicione posição relativa para posicionamento do ícone */
+}
+
+.search-input {
+  display: block;
+  border: 1px solid #dbdbdb;
+  border-radius: 40px 0 0 40px;
+  width: 100%;
+  height: 40px;
+  padding-left: 20px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+  z-index: 1;
+  outline: none;
+  /* Remove a borda padrão do input quando ele está em foco */
+  position: relative;
+  /* Adicione posição relativa ao input */
+}
+
+.search-input:focus {
+  padding-left: 40px;
+  border-color: #0070f3;
+  /* Altera a cor da borda quando o input está em foco */
+}
+
+.lupa-pesquisa {
+  fill: #888;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  transition: fill 0.3s, left 0.3s;
+  z-index: 3;
+  /* Aumente o z-index para que a lupa-pesquisa esteja acima da borda esquerda */
+  pointer-events: none;
+  /* Evita que o ícone seja clicável */
+  opacity: 0;
+  /* Começa com opacidade zero para escondê-lo */
+}
+
+.input-container:focus-within .lupa-pesquisa {
+  left: 15px;
+  /* Posiciona o ícone à esquerda quando o input está em foco */
+  opacity: 1;
+  /* Torna o ícone visível quando o input está em foco */
+}
+
+#teclado {
+  display: flex;
+  cursor: pointer;
+  position: absolute;
+  align-self: center;
+  right: 10px;
+  /* Posiciona o ícone à direita, ao lado do input */
+  z-index: 4;
+}
+
+#teclado:hover img {
+  filter: brightness(70%);
+  transition: filter 0.3s;
+}
+
+/* Aplicar hover a todos os elementos SVG, exceto aqueles com a classe .youtube-logo-svg */
+svg:not(.youtube-logo-svg):hover {
+  fill: #ff0000;
+}
+
+.search-btn {
+  background: hsl(0, 0%, 97%);
+  border: 1px solid #cccccc;
+  border-radius: 0 40px 40px 0;
+  cursor: pointer;
+  height: 40px;
+  width: 60px;
+  padding: 1px 12px;
+}
+
+svg.lupa {
+  display: block;
+  padding: 0 7px;
+  width: 100%;
+  height: 100%;
+}
+
+button.microfone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 12px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+
+  border-radius: 100px;
+  border: #ccc;
+  background-color: #f0f0f0;
+}
+
+.microfone:hover, .search-btn:hover {
+  background-color: #e6e6e6;
+}
+
+/*  #########################  HEADER DIREITO #########################  */
+
+.header-direito {
+  margin-right: 30px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+svg.icon {
+  width: 24px;
+  height: 24px;
+  fill: currentcolor;
+}
+
+.icon-dir {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 12px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 100px;
+}
+
+.icon-dir:hover {
+  background-color: #e6e6e6;
+  /* Altera a cor de fundo no hover */
+}
+
+.user {
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.user img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin-right: 12px;
+}
+
+/* ########################## SIDEBAR ########################## */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 240px;
+  padding: 12px;
+  max-height: calc(100vh - 60px); /* Subtrai a altura do topo para ajustar à altura da janela */
+  overflow-y: auto; /* Adiciona uma barra de rolagem quando necessário */
+}
+
+
+
+/* ESCONDER A BARRA DE ROLAGEM QUANDO NÃO ESTIVER COM O MOUSE NO SIDEBAR */
+
+/* Estilo padrão para a barra de rolagem */
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Estilo da alça da barra de rolagem */
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #888; /* Cor da alça da barra de rolagem */
+  border-radius: 4px; /* Cantos arredondados para a alça */
+}
+
+/* Quando o mouse não está sobre o sidebar, esconda a barra de rolagem */
+.sidebar:not(:hover)::-webkit-scrollbar {
+  width: 0;
+}
+
+/* FIM DA BARRA DE ROLAGEM */
+
+.links {
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  padding: 0 12px;
+  /* width: 204px; */
+  height: 40px;
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+
+svg.sidebar-svg {
+  width: 24px;
+  height: 24px;
+}
+
+
+
+
+.links:hover,
+.links.active, 
+.mais-youtube a:hover,
+.configuracoes a:hover,
+.inscricoes a:hover, 
+.explorar a:hover {
+  background: hsl(0, 0%, 93.3%);
+  border-radius: 10px;
+}
+
+.linha {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+  width: 100%;
+}
+
+.links p, p {
+  font-size: 14px;
+  line-height: 2rem;
+  font-weight: 400;
+  color: #0F0F0F;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-left: 20px;
+  flex: 1;
+  flex-basis: 1e-9px;
+}
+
+.inscricoes h3, 
+.explorar h3, 
+.mais-youtube h3, 
+.configuracoes h3 {
+  display: block;
+  padding: 0 0 15px 12px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #0F0F0F;
+}
+
+.inscricoes, .explorar, .mais-youtube, .configuracoes {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.inscricoes a, .explorar a, .mais-youtube a, .configuracoes a {
+  padding-left: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 204px;
+  height: 40px;
+
+  text-decoration: none;
+}
+
+.final {
+  font-size: 13px;
+  font-weight: 500;
+  margin-left: 8px;
+  margin-bottom: 20px;
+}
+
+.final a {
+  text-decoration: none;
+  color: #606060;
+  display: inline-block;
+  margin-right: 10px; /* Espaço entre as palavras */
+}
+
+.final a:last-child {
+  margin-right: 0; /* Remova a margem direita da última palavra */
+}
+
+.final a:hover {
+  text-decoration: underline;
+}
+
+
+/* ########################## FILTROS ABAIXO DO HEADER ########################## */
+
+.filtros {
+  position: fixed;
+  top: 60px;
+  /* Altura do header */
+  left: 240px;
+  /* largura do sidebar */
+  width: calc(100% - 240px);
+  height: 60px;
+  background: #fff;
+  padding: 10px 15px 60px 5px;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.filter-options {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  height: 32px;
+  min-width: 12px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 0px;
+  user-select: none;
+  overflow: hidden;
+  margin-right: 20px;
+  color: #0F0F0F;
+  font-size: 15px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  /* Adiciona uma transição suave para hover */
+}
+
+.filter-options.active {
+  color: #fff;
+  background: #242424;
+}
+
+.filter-options:hover {
+  background: #e6e6e6;
+  /* Altera a cor de fundo quando o mouse passa por cima */
+  color: #000;
+  /* Altera a cor do texto quando o mouse passa por cima */
+}
+
+/* ########################## VÍDEOS ########################## */
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 140px;
+  /* 60px (altura do header) + 60px (altura do filtro) + padding do filtro 10px */
+  margin-left: 240px;
+  /* tamanho do sidebar */
+  flex: 1;
+  width: calc(100% - 240px);
+}
+
+.video {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  max-width: 330px;
+  padding: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.thumbnail {
+  height: auto;
+  width: 100%;
+  border-radius: 15px;
+}
+
+.video-detalhes {
+  display: flex;
+  flex-direction: row;
+  height: 80px;
+}
+
+.icone-canal {
+  border-radius: 200px;
+  height: 36px;
+  margin-top: 12px;
+}
+
+.info-video {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.titulo-video {
+  font-size: 16px;
+  font-weight: 500;
+  color: #0F0F0F;
+  margin: 12px 0 0 10px;
+}
+
+p.nome-canal, p.video-views {
+  font-size: 14px;
+  font-weight: 400;
+  color: #606060;
+  margin-left: 10px;
+  margin-top: -4px;
+}
+
+/* ####################### MENU SANDUICHE ####################### */
+
+.small-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  gap: 20px;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 70px;
+  overflow: hidden;
+}
+
+.small-sidebar a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  flex-wrap: wrap;
+  text-align: center; /* Centralize o texto */
+  height: 60px;
+}
+
+.small-sidebar p {
+  margin: 0;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 14px;
+  max-height: 14px;
+  padding-bottom: 20px;
+}
+
+.esconde-outros-icones {
+  display: none;
+}
+
+.esconde-inscricoes, 
+.esconde-explorar, 
+.esconde-mais-youtube,
+.esconde-configuracoes,
+.esconde-final,
+.esconde-linha {
+  display: none;
+}
+
+.aumenta-video-container {
+  /* flex-grow: 1; */
+
+  margin-top: 130px;
+  /* 60px (altura do header) + 60px (altura do filtro) + padding do filtro 10px */
+  margin-left: 100px;
+  /* tamanho do sidebar */
+  flex: 1;
+  width: calc(100% - 100px);
+}
+
+.small-filtros {
+  position: fixed;
+  top: 60px;
+  /* Altura do header */
+  left: 100px;
+  /* largura do sidebar */
+  width: calc(100% - 100px);
+  height: 60px;
+  background: #fff;
+  padding: 10px 15px 60px 5px;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.aumenta-video {
+  flex-grow: 1;
+  justify-content: center;
+
+  height: auto;
+  max-width: 360px;
+  padding: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
