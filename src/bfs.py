@@ -1,9 +1,10 @@
 from math import inf
 
-# Algoritmo de busca em profundidade
-
 
 def BFS(n, network, s):
+    '''
+        Algoritmo de busca em profundidade
+    '''
     color = ["WHITE"]*n
     d = [inf]*n
     pi = [-1]*n
