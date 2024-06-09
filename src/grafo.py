@@ -9,10 +9,14 @@ class Video:
     '''
 
     def __init__(
-            self, autor: str,
-            tags: set[str], likes: int, thumbnail="") -> None:
+            self, autor: str, tags: set[str], likes: int,
+            thumbnail: str = "", icon: str = "",
+            views: str = "", time_posted: str = "") -> None:
         self.autor: str = autor
-        self.thumbnail = thumbnail
+        self.thumbnail: str = thumbnail
+        self.icon: str = icon
+        self.views: str = views
+        self.time_posted: str = time_posted
         self.tags: set = tags
         self.likes: int = likes
         self.relacionados: list = []
