@@ -8,8 +8,11 @@ class Video:
         Criando vértice que representa o vídeo
     '''
 
-    def __init__(self, autor: str, tags: set[str], likes: int) -> None:
+    def __init__(
+            self, autor: str,
+            tags: set[str], likes: int, thumbnail="") -> None:
         self.autor: str = autor
+        self.thumbnail = thumbnail
         self.tags: set = tags
         self.likes: int = likes
         self.relacionados: list = []
@@ -32,6 +35,10 @@ class Video:
                             similaridade_autor * PESO_AUTOR)
 
         return semelhanca_total
+
+    def __repr__(self) -> str:
+        return f"(Autor: {self.autor},\nTags: {self.tags},\n"\
+            f"Likes: [{self.likes}]), Relacionados: {self.relacionados}"
 
 
 class Plataforma:
