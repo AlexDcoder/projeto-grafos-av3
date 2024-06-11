@@ -9,7 +9,7 @@ def BFS(plataforma: Plataforma, video_inicial: Video):
     color = ["WHITE"] * n
     d = [inf] * n
     pi = [-1] * n
-    pesos = [0] * n
+    pesos = [[plataforma.videos[i], 0] for i in range(n)]
     s = plataforma.videos.index(video_inicial)
 
     color[s] = "GRAY"
@@ -27,7 +27,8 @@ def BFS(plataforma: Plataforma, video_inicial: Video):
                 color[index_v] = "GRAY"
                 d[index_v] = d[plataforma.videos.index(u)] + 1
                 pi[index_v] = u
-                pesos[index_v] = v.nivel_de_similaridade(u)
+                pesos[index_v][0] = v
+                pesos[index_v][1] = v.nivel_de_similaridade(u)
                 Q.append(v)
             color[index_v] == "BLACK"
-    return d, pi, pesos
+    return pi, pesos

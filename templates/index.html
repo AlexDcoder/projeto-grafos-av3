@@ -5,11 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ustube</title>
-  <link rel="icon" href="img/favicon.svg" type="image/x-icon/svg+xml">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/responsive.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
-    rel="stylesheet">
+  <link rel="icon" href="../static/../static/img/favicon.svg" type="image/x-icon/svg+xml">
+  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" href="static/css/responsive.css">
 </head>
 
 <body>
@@ -23,7 +21,7 @@
       </div>
       <div class="youtube-logo">
         <svg class="youtube-logo-svg" viewBox="0 0 90 20" preserveAspectRatio="xMidYMid meet"
-        <img src="img/uslogo.png" alt>
+        <img src="../static/../static/img/uslogo.png" alt>
           <path
             d="M27.9727 3.12324C27.6435 1.89323 26.6768 0.926623 25.4468 0.597366C23.2197 2.24288e-07 14.285 0 14.285 0C14.285 0 5.35042 2.24288e-07 3.12323 0.597366C1.89323 0.926623 0.926623 1.89323 0.597366 3.12324C2.24288e-07 5.35042 0 10 0 10C0 10 2.24288e-07 14.6496 0.597366 16.8768C0.926623 18.1068 1.89323 19.0734 3.12323 19.4026C5.35042 20 14.285 20 14.285 20C14.285 20 23.2197 20 25.4468 19.4026C26.6768 19.0734 27.6435 18.1068 27.9727 16.8768C28.5701 14.6496 28.5701 10 28.5701 10C28.5701 10 28.5677 5.35042 27.9727 3.12324Z"
             fill="#FF0000"></path>
@@ -49,7 +47,7 @@
           </path>
         </svg>
       </div>
-      <span id="language-logo" class="img/uslogo.png">BR</span>
+      <span id="language-logo" class="../static/img/uslogo.png">BR</span>
     </div>
 
     <div class="header-centro">
@@ -107,7 +105,7 @@
       </div>
 
       <div class="user">
-        <img src="img/profile.png" alt>
+        <img src="../static/../static/img/profile.png" alt>
       </div>
     </div>
   </header>
@@ -194,22 +192,22 @@
       <h3>Inscrições</h3>
       <a href="">
         <img class="user" draggable="false" class="style-scope yt-img-shadow" height="24" width="24" alt="imagem do canal em menu inscrições"
-          src="img/profilefilmes.png">
+          src="../static/img/profilefilmes.png">
         <p>Cine Mundo</p>
       </a>
       <a href="">
         <img class="user" draggable="false" class="style-scope yt-img-shadow" height="24" width="24" alt="imagem do canal em menu inscrições"
-          src="img/profilemusica.png">
+          src="../static/img/profilemusica.png">
         <p>Music Channel</p>
       </a>
       <a href="">
         <img class="user" draggable="false" class="style-scope yt-img-shadow" height="24" width="24" alt="imagem do canal em menu inscrições"
-          src="img/profilejogos.png">
+          src="../static/img/profilejogos.png">
         <p>Game Masters</p>
       </a>
       <a href="">
         <img class="user" draggable="false" class="style-scope yt-img-shadow" height="24" width="24" alt="imagem do canal em menu inscrições"
-          src="img/profileesportes.png">
+          src="../static/img/profileesportes.png">
         <p>Arena Esportiva</p>
       </a>
 
@@ -460,79 +458,21 @@
 
   <!-- VÍDEOS -->
   <div class="video-container">
-    <div class="video" data-url="https://www.youtube.com/">
-      <img src="img/moana.jpg" class="thumbnail" alt>
-      <div class="video-detalhes">
-        <img src="img/profilefilmes.png" class="icone-canal" alt>
-        <div class="info-video">
-          <h4 class="titulo-video">Moana 2 | Teaser Oficial</h4>
-          <p class="nome-canal">Cine Mundo</p>
-          <p class="video-views">100 visualizações . há 2 dias</p>
+    {% for video in videos %}
+    <div class="video" data-id="{{ video.id }}">
+        <img src="{{ video.thumbnail }}" class="thumbnail" alt="">
+        <div class="video-detalhes">
+            <img src="{{ video.icon }}" class="icone-canal" alt="">
+            <div class="info-video">
+                <h4 class="titulo-video">{{ video.title }}</h4>
+                <p class="nome-canal">{{ video.autor }}</p>
+                <p class="video-views">{{ video.views }} . {{ video.time_posted }}</p>
+            </div>
         </div>
-      </div>
     </div>
-  
-    <div class="video" data-url="/pagina_video">
-      <img src="img/maxresdefault.jpg" class="thumbnail" alt>
-      <div class="video-detalhes">
-        <img src="img/profilemusica.png" class="icone-canal" alt>
-        <div class="info-video">
-          <h4 class="titulo-video">Os Melhores Rocks de Todos</h4>
-          <p class="nome-canal">Music Channel</p>
-          <p class="video-views">100 visualizações . há 2 dias</p>
-        </div>
-      </div>
-    </div>
-  
-    <div class="video" data-url="https://www.youtube.com/">
-      <img src="img/jogos.jpg" class="thumbnail" alt>
-      <div class="video-detalhes">
-        <img src="img/profilejogos.png" class="icone-canal" alt>
-        <div class="info-video">
-          <h4 class="titulo-video">NOVOS JOGOS DE 2024</h4>
-          <p class="nome-canal">Game Masters</p>
-          <p class="video-views">100 visualizações . há 2 dias</p>
-        </div>
-      </div>
-    </div>
-  
-    <div class="video" data-url="https://www.youtube.com/">
-      <img src="img/esportes.jpg" class="thumbnail" alt>
-      <div class="video-detalhes">
-        <img src="img/profileesportes.png" class="icone-canal" alt>
-        <div class="info-video">
-          <h4 class="titulo-video">FINAL DA COPA DO REI</h4>
-          <p class="nome-canal">Arena Esportiva</p>
-          <p class="video-views">100 visualizações . há 2 dias</p>
-        </div>
-      </div>
-    </div>
-  
-    <div class="video" data-url="https://www.youtube.com/">
-      <img src="img/esportes2.webp" class="thumbnail" alt>
-      <div class="video-detalhes">
-        <img src="img/profileesportes.png" class="icone-canal" alt>
-        <div class="info-video">
-          <h4 class="titulo-video">JOGOS DE HOJE LIBERTADORES</h4>
-          <p class="nome-canal">Arena Esportiva</p>
-          <p class="video-views">100 visualizações . há 2 dias</p>
-        </div>
-      </div>
-    </div>
-  
-    <div class="video" data-url="https://www.youtube.com/">
-      <img src="img/filmes2.jpg" class="thumbnail" alt>
-      <div class="video-detalhes">
-        <img src="img/profilefilmes.png" class="icone-canal" alt>
-        <div class="info-video">
-          <h4 class="titulo-video">MELHORES FILMES DA DÉCADA!</h4>
-          <p class="nome-canal">Cine Mundo</p>
-          <p class="video-views">100 visualizações . há 2 dias</p>
-        </div>
-      </div>
-    </div>
+    {% endfor %}
   </div>
 
-  <script src="js/script.js"></script>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
