@@ -66,8 +66,7 @@ function realizarCalculo(videoId) {
               console.error(data.error);
               return;
           }
-          console.log(data); // Exibir os resultados no console
-          // Atualizar a interface com os resultados
+          console.log(data); 
           mostrarResultados(data);
       })
       .catch(error => console.error('Error:', error));
